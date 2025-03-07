@@ -5,10 +5,20 @@ const api = axios.create({
     timeout: 5000,
 });
 
-export const searchGames = async (title = '') => {
+export const searchGames = async (title = '', filters) => {
     try {
         const response = await api.get('/deals', {
-            params: { storeID: 1, title, lowerPrice: 0, upperPrice: 100 },
+            params: {
+                storeID: 1,
+                title,
+                lowerPrice: filters.lowerPrice || 0,
+                upperPrice: filters.upperPrice || 50,
+                metacritic: filters.metacritic || 0,
+                onSale: filters.onSale ? 1 : 0,
+                AAA: filters.AAA ? 1 : 0,
+                pageSize: 60,
+                pageNumber: 0,
+            },
         });
         return response.data;
     } catch (error) {
