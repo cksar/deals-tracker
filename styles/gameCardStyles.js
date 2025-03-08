@@ -6,9 +6,11 @@ const screenWidth = Dimensions.get('window').width;
 export const Card = styled.View`
   padding: 12px;
   margin-bottom: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   border-radius: 8px;
   width: 100%;
+  background-color: #1c1c1c;
+  flex-direction: column;
 `;
 
 export const Title = styled.Text`
@@ -16,6 +18,7 @@ export const Title = styled.Text`
   font-weight: bold;
   text-align: left;
   margin-bottom: 8px;
+  color: #fff;
 `;
 
 export const ContentContainer = styled.View`
@@ -66,11 +69,12 @@ export const PriceContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  margin-top: auto;
 `;
 
 export const OriginalPriceText = styled.Text`
   font-size: 14px;
-  color: black;
+  color: ${({ isOnSale }) => (isOnSale ? '#888' : '#fff')};
   text-decoration-line: ${({ isOnSale }) => (isOnSale ? 'line-through' : 'none')};
   font-weight: ${({ isOnSale }) => (isOnSale ? 'normal' : 'bold')};
   margin-right: 4px;

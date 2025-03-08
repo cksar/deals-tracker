@@ -1,71 +1,53 @@
 import React from 'react';
-import { FilterContainer, FilterLabel, FilterInput, ButtonContainer, FilterButton, ClearButton, ButtonText } from '../styles/searchBarStyles';
+import { FilterContainer, FilterLabel, FilterInput, FilterSelect, Separator } from '../styles/searchBarStyles';
 import { Picker } from '@react-native-picker/picker';
 
-export function FilterInputs({ filters, setFilters, onShowResults, onClearFilters }) {
+export function FilterInputs({ filters, setFilters }) {
   return (
     <FilterContainer>
       <FilterLabel>Preço Mínimo</FilterLabel>
       <FilterInput
-        placeholder="Ex: 10"
-        keyboardType="numeric"
+        placeholderTextColor="#888"
         value={filters.lowerPrice}
         onChangeText={(text) => setFilters({ ...filters, lowerPrice: text })}
       />
       <FilterLabel>Preço Máximo</FilterLabel>
       <FilterInput
-        placeholder="Ex: 50"
-        keyboardType="numeric"
+        placeholderTextColor="#888"
         value={filters.upperPrice}
         onChangeText={(text) => setFilters({ ...filters, upperPrice: text })}
       />
-      <FilterLabel>Metacritic Mínimo</FilterLabel>
+      <FilterLabel>Nota mínima do Metacritic</FilterLabel>
       <FilterInput
-        placeholder="Ex: 60"
-        keyboardType="numeric"
+        placeholderTextColor="#888"
         value={filters.metacritic}
         onChangeText={(text) => setFilters({ ...filters, metacritic: text })}
       />
+
+      <Separator />
+
       <FilterLabel>Ordenar por</FilterLabel>
-      <Picker
+      <FilterSelect
         selectedValue={filters.sortBy}
         onValueChange={(value) => setFilters({ ...filters, sortBy: value })}
-        style={{ height: 50, width: '100%' }}
       >
-        <Picker.Item label="DealRating" value="DealRating" />
-        <Picker.Item label="Title" value="Title" />
-        <Picker.Item label="Savings" value="Savings" />
-        <Picker.Item label="Price" value="Price" />
+        <Picker.Item label="Nota" value="DealRating" />
+        <Picker.Item label="Título" value="Title" />
+        <Picker.Item label="Desconto" value="Savings" />
+        <Picker.Item label="Preço" value="Price" />
         <Picker.Item label="Metacritic" value="Metacritic" />
-        <Picker.Item label="Reviews" value="Reviews" />
-        <Picker.Item label="Release" value="Release" />
-        <Picker.Item label="Store" value="Store" />
-        <Picker.Item label="Recent" value="Recent" />
-      </Picker>
-      <FilterLabel>Classificação mínima no Steam</FilterLabel>
+        <Picker.Item label="Avaliações" value="Reviews" />
+        <Picker.Item label="Lançamento" value="Release" />
+        <Picker.Item label="Loja" value="Store" />
+        <Picker.Item label="Recentes" value="Recent" />
+      </FilterSelect>
+      <FilterLabel>Nota mínima na Steam</FilterLabel>
       <FilterInput
-        placeholder="Ex: 80"
-        keyboardType="numeric"
+        placeholder="80"
+        placeholderTextColor="#888"
         value={filters.steamRating}
         onChangeText={(text) => setFilters({ ...filters, steamRating: text })}
       />
-      <FilterLabel>Horas Máximas de Ofertas</FilterLabel>
-      <FilterInput
-        placeholder="Ex: 2500"
-        keyboardType="numeric"
-        value={filters.maxAge}
-        onChangeText={(text) => setFilters({ ...filters, maxAge: text })}
-      />
-      
-      {/* Botões no fim da tela de filtros */}
-      <ButtonContainer>
-        <FilterButton onPress={onShowResults}>
-          <ButtonText>Exibir Resultados</ButtonText>
-        </FilterButton>
-        <ClearButton onPress={onClearFilters}>
-          <ButtonText>Limpar Filtros</ButtonText>
-        </ClearButton>
-      </ButtonContainer>
     </FilterContainer>
   );
 }

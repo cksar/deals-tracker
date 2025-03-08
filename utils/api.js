@@ -12,12 +12,9 @@ export const searchGames = async (title = '', filters) => {
                 storeID: 1,
                 title,
                 lowerPrice: filters.lowerPrice || 0,
-                upperPrice: filters.upperPrice || 50,
+                upperPrice: filters.upperPrice || 2000,
                 metacritic: filters.metacritic || 0,
                 onSale: filters.onSale ? 1 : 0,
-                AAA: filters.AAA ? 1 : 0,
-                pageSize: 60,
-                pageNumber: 0,
             },
         });
         return response.data;
