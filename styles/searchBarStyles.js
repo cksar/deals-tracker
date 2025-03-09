@@ -13,12 +13,14 @@ export const SearchContainer = styled.View`
 
 export const SearchInput = styled.TextInput`
   flex: 1;
+  background-color: transparent;
+  color: #ffffff;
   font-size: 16px;
-  color: #fff;
-  background-color: #333;
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #444;
+  border-width: 0;
+  outline: none;
+  shadow-opacity: 0;
+  elevation: 0;
 `;
 
 export const FilterIconButton = styled.View`
@@ -71,19 +73,10 @@ export const ModalContainer = styled.View`
   background-color: rgba(0, 0, 0, 0.8);
 `;
 
-export const ModalCloseButton = styled.Text`
-  font-size: 20px;
-  color: #fff;
-  font-weight: bold;
-  align-self: flex-end;
-  margin-bottom: 20px;
-`;
-
-export const ToggleButton = styled.Text`
-  font-size: 16px;
-  color: #0a84ff;
-  margin-top: 12px;
-  text-align: center;
+export const ModalContent = styled.View`
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
 `;
 
 export const ButtonContainer = styled.View`
@@ -118,4 +111,11 @@ export const Separator = styled.View`
   height: 1px;
   background-color: #444;
   margin-vertical: 12px;
+`;
+
+export const FilterSwitchRow = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 `;

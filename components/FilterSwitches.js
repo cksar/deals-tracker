@@ -1,12 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
-import { FilterLabel } from '../styles/searchBarStyles';
 import { Switch } from 'react-native';
+import { FilterLabel, FilterSwitchRow } from '../styles/searchBarStyles';
 
 export function FilterSwitches({ filters, setFilters }) {
   return (
     <>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+      <FilterSwitchRow>
         <FilterLabel>Em Promoção</FilterLabel>
         <Switch
           trackColor={{ false: "#444", true: "#0a84ff" }}
@@ -14,8 +13,8 @@ export function FilterSwitches({ filters, setFilters }) {
           value={filters.onSale}
           onValueChange={(value) => setFilters({ ...filters, onSale: value })}
         />
-      </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+      </FilterSwitchRow>
+      <FilterSwitchRow>
         <FilterLabel>Jogos AAA</FilterLabel>
         <Switch
           trackColor={{ false: "#444", true: "#0a84ff" }}
@@ -23,8 +22,8 @@ export function FilterSwitches({ filters, setFilters }) {
           value={filters.AAA}
           onValueChange={(value) => setFilters({ ...filters, AAA: value })}
         />
-      </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+      </FilterSwitchRow>
+      <FilterSwitchRow>
         <FilterLabel>Ordenar de forma decrescente</FilterLabel>
         <Switch
           trackColor={{ false: "#444", true: "#0a84ff" }}
@@ -32,7 +31,7 @@ export function FilterSwitches({ filters, setFilters }) {
           value={filters.desc}
           onValueChange={(value) => setFilters({ ...filters, desc: value })}
         />
-      </View>
+      </FilterSwitchRow>
     </>
   );
 }

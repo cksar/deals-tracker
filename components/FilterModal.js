@@ -1,18 +1,20 @@
 import React from 'react';
-import { Modal, View } from 'react-native';
+import { Modal } from 'react-native';
 import {
   ModalContainer,
   Separator,
   ButtonContainer,
   FilterButton,
   ClearButton,
-  ButtonText
+  ButtonText,
+  ModalContent
 } from '../styles/searchBarStyles';
 import { FilterInputs } from './FilterInputs';
 import { FilterSwitches } from './FilterSwitches';
 
-export function FilterModal({ visible, setVisible, filters, setFilters }) {
+export function FilterModal({ visible, setVisible, filters, setFilters, onApply }) {
   const handleShowResults = () => {
+    if (onApply) onApply();
     setVisible(false);
   };
 
@@ -37,7 +39,7 @@ export function FilterModal({ visible, setVisible, filters, setFilters }) {
       onRequestClose={() => { }}
     >
       <ModalContainer>
-        <View style={{ backgroundColor: "#1c1c1c", padding: 20, borderRadius: 10 }}>
+        <ModalContent>
           <FilterInputs filters={filters} setFilters={setFilters} />
 
           <Separator />
@@ -54,7 +56,7 @@ export function FilterModal({ visible, setVisible, filters, setFilters }) {
               <ButtonText>Limpar Filtros</ButtonText>
             </ClearButton>
           </ButtonContainer>
-        </View>
+        </ModalContent>
       </ModalContainer>
     </Modal>
   );

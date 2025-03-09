@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
-import { SearchContainer, SearchInput, SearchButton, ToggleButton, FilterIconButton } from '../styles/searchBarStyles';
+import { SearchContainer, SearchInput, SearchButton, FilterIconButton } from '../styles/searchBarStyles';
 import { TouchableOpacity } from 'react-native';
 import { FilterModal } from './FilterModal';
 
@@ -37,6 +37,7 @@ export function SearchBar({ searchQuery, setSearchQuery, onSearch, filters, setF
         setVisible={setShowModal}
         filters={filters}
         setFilters={setFilters}
+        onApply={onSearch}
       />
     </>
   );

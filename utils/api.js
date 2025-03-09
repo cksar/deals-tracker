@@ -7,16 +7,25 @@ const api = axios.create({
 
 export const searchGames = async (title = '', filters) => {
     try {
-        const response = await api.get('/deals', {
-            params: {
-                storeID: 1,
-                title,
-                lowerPrice: filters.lowerPrice || 0,
-                upperPrice: filters.upperPrice || 2000,
-                metacritic: filters.metacritic || 0,
-                onSale: filters.onSale ? 1 : 0,
-            },
-        });
+        const lowerPrice = filters.lowerPrice ? parseFloat(filters.lowerPrice) : 0;
+        const upperPrice = filters.upperPrice ? parseFloat(filters.upperPrice) : 300;
+        const metacritic = filters.metacritic ? parseFloat(filters.metacritic) : 0;
+        const steamRating = filters.steamRating ? parseFloat(filters.steamRating) : undefined;
+
+        const params = {
+            storeID: 1,
+            title,
+            lowerPrice,
+            upperPrice,
+            metacritic,
+            onSale: filters.onSale ? 1 : 0,
+            sortBy: filters.sortBy || 'DealRating',
+            desc: filters.desc ? 1 : 0,
+            AAA: filters.AAA ? 1 : 0,
+            ...(steamRating !== undefined && { steamRating }),
+        };
+
+        const response = await api.get('/deals', { params });
         return response.data;
     } catch (error) {
         console.error('Erro ao buscar jogos:', error);

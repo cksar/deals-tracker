@@ -1,0 +1,36 @@
+1. Environment Setup
+	React Native Environment Setup: https://reactnative.dev/docs/environment-setup
+	Installing Node.js: https://nodejs.org/en/download/
+	Android Studio and SDK: https://developer.android.com/studio
+	Running Emulator in Android Studio: https://developer.android.com/studio/run/emulator
+2. File Structure and Naming Conventions
+	Styled-components in React Native: https://styled-components.com/docs/basics#react-native
+3. UI Construction
+	React Native Components: https://reactnative.dev/docs/components-and-apis
+	Flexbox in React Native: https://reactnative.dev/docs/flexbox
+	Using FlatList for lists: https://reactnative.dev/docs/flatlist
+	React Native Modal: https://reactnative.dev/docs/modal
+	TouchableOpacity and Pressable: https://reactnative.dev/docs/touchableopacity
+4. State Management
+	React Hooks (useState, useEffect): https://react.dev/reference/react
+	Context API: https://react.dev/reference/react/useContext
+5. API Consumption
+	Axios for HTTP requests: https://axios-http.com/docs/intro
+	Example usage of Axios: https://axios-http.com/ptbr/docs/example
+6. Filters and Search Functionality
+	Using TextInput for search: https://reactnative.dev/docs/textinput
+7. Styled-Components and Styling
+	Creating styles with Styled-Components: https://styled-components.com/docs/basics
+	Theming in Styled-Components: https://styled-components.com/docs/advanced#theming
+8. Optimization and Best Practices
+	Correct use of useEffect: https://react.dev/reference/react/useEffect
+	Dark mode implementation in React: https://medium.com/@mateuspnd/introduzindo-dark-mode-no-react-js-8a24761da369
+9. Additional References
+	Creating a React Native project with Expo: https://docs.expo.dev/get-started/create-a-project/
+	FlatList documentation: https://reactnative.dev/docs/0.76/flatlist?language=typescript
+	YouTube tutorial on API integration: https://www.youtube.com/watch?v=NbhoeLj6lBs
+	YouTube tutorial on React Native development: https://www.youtube.com/watch?v=wyT2GaU2zLg
+	Stack Overflow discussion on fetching API data in React Native: https://pt.stackoverflow.com/questions/459535/exibir-dados-de-api-react-native
+	GitHub Expo issue discussion: https://github.com/expo/expo/issues/3896
+	Expo SDK version reference: https://expo.dev/go?sdkVersion=51&platform=android&device=true
+	Alura forum discussion on Node.js version compatibility: https://cursos.alura.com.br/forum/topico-versao-do-node-nao-suportada-345684
