@@ -10,18 +10,22 @@ export function FilterInputs({ filters, setFilters }) {
         placeholderTextColor="#888"
         value={filters.lowerPrice}
         onChangeText={(text) => setFilters({ ...filters, lowerPrice: text })}
+        keyboardType="numeric"
       />
+
       <FilterLabel>Preço Máximo</FilterLabel>
       <FilterInput
         placeholderTextColor="#888"
         value={filters.upperPrice}
         onChangeText={(text) => setFilters({ ...filters, upperPrice: text })}
+        keyboardType="numeric"
       />
       <FilterLabel>Nota mínima do Metacritic</FilterLabel>
       <FilterInput
         placeholderTextColor="#888"
         value={filters.metacritic}
         onChangeText={(text) => setFilters({ ...filters, metacritic: text })}
+        keyboardType="numeric"
       />
 
       <Separator />
@@ -30,6 +34,8 @@ export function FilterInputs({ filters, setFilters }) {
       <FilterSelect
         selectedValue={filters.sortBy}
         onValueChange={(value) => setFilters({ ...filters, sortBy: value })}
+        style={{ width: "100%", height: 50 }}
+        itemStyle={{ fontSize: 16 }}
       >
         <Picker.Item label="Nota" value="DealRating" />
         <Picker.Item label="Título" value="Title" />
@@ -47,6 +53,7 @@ export function FilterInputs({ filters, setFilters }) {
         placeholderTextColor="#888"
         value={filters.steamRating}
         onChangeText={(text) => setFilters({ ...filters, steamRating: text })}
+        keyboardType="numeric"
       />
     </FilterContainer>
   );

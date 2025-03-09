@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from 'react-native';
+import { Modal, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import {
   ModalContainer,
   Separator,
@@ -39,24 +39,31 @@ export function FilterModal({ visible, setVisible, filters, setFilters, onApply 
       onRequestClose={() => { }}
     >
       <ModalContainer>
-        <ModalContent>
-          <FilterInputs filters={filters} setFilters={setFilters} />
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={{ flex: 1 }}
+        >
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+            <ModalContent>
+              <FilterInputs filters={filters} setFilters={setFilters} />
 
-          <Separator />
+              <Separator />
 
-          <FilterSwitches filters={filters} setFilters={setFilters} />
+              <FilterSwitches filters={filters} setFilters={setFilters} />
 
-          <Separator />
+              <Separator />
 
-          <ButtonContainer>
-            <FilterButton onPress={handleShowResults}>
-              <ButtonText>Exibir Resultados</ButtonText>
-            </FilterButton>
-            <ClearButton onPress={handleClearFilters}>
-              <ButtonText>Limpar Filtros</ButtonText>
-            </ClearButton>
-          </ButtonContainer>
-        </ModalContent>
+              <ButtonContainer>
+                <FilterButton onPress={handleShowResults}>
+                  <ButtonText>Exibir Resultados</ButtonText>
+                </FilterButton>
+                <ClearButton onPress={handleClearFilters}>
+                  <ButtonText>Limpar Filtros</ButtonText>
+                </ClearButton>
+              </ButtonContainer>
+            </ModalContent>
+          </ScrollView>
+        </KeyboardAvoidingView>
       </ModalContainer>
     </Modal>
   );
